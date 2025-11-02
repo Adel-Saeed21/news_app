@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsapp/Feature/home_page/presentation/widgets/animal_discover_card.dart';
 import 'package:newsapp/Feature/home_page/presentation/widgets/category_tab_bar.dart';
 import 'package:newsapp/Feature/home_page/presentation/widgets/image_carousel.dart';
 import 'package:newsapp/core/helpers/space.dart';
@@ -32,6 +34,49 @@ class HomePage extends StatelessWidget {
                 onTabSelected: (index) {
                   debugPrint("Selected tab index: $index");
                 },
+              ),
+              verticalSpace(10.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Recommend Artical",
+                    style: AppTextStyles.font18SemiBoldWhite,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Show All",
+                      style: AppTextStyles.font14RegularGray.copyWith(
+                        color: Colors.lightGreenAccent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [AnimalDiscoveryCard(), AnimalDiscoveryCard()],
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Color(0xff30312D),
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12.r),
+                      child: Image.asset(
+                        'assets/images/tiger.jpg',
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 150,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
